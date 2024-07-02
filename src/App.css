@@ -1,38 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+PL:wght@100..400&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes myAnimation {
+  0% {
+    opacity: 0;
+  }100% {
+    opacity: 1;
+  }
+}
+
 .App {
   text-align: center;
+  color: rgb(31, 13, 130);
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 35px;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App p {
+  font-family: "Playwrite PL", cursive;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App h1 {
+  margin: 0;
+  animation: myAnimation 3s infinite alternate;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
+  background-color: white;
+  color: rgb(60, 60, 80);
+  font-family: 'Montserrat';
+  font-weight: 800;
+  font-size: 3em;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+section {
+  position: relative;
+  z-index: 1;
+  
+  &::after {
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.2em;
+    letter-spacing: 0.5em;
+    content: attr(data-identity);
+    color: #EAEAF2;
+    z-index: -1;
+    animation: animLetterSpacing 4500ms infinite ease-in-out;
   }
-  to {
-    transform: rotate(360deg);
+}
+.pen__lines-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: flex;
+}
+
+.pen__line {
+  flex: 1;
+  border-right: solid 1px #EAEAF2;
+  opacity: 0.8;
+  position: relative;
+
+}
+
+span {
+  font-family: "Libre baskerville";
+  font-style: italic;
+  display: inline-block;
+  color: #340684;
+  font-size: 70px;
+}
+
+
+
+@keyframes animLetterSpacing {
+  0% {
+    letter-spacing: 2.5em;
+    opacity: 0;
+  }
+  
+  40% {
+		opacity: 1;
+    letter-spacing: 0.5em;
+  }
+  
+  70% {
+		letter-spacing: 0.75em;
+  }
+  
+  100% {
+    letter-spacing: 2.5em;
   }
 }
